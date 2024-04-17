@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order Details</title>
+</head>
+<body>
+<h1>Order Details</h1>
+<p>Product Name: {{ order.product_name }}</p>
+<p>Quantity: {{ order.quantity }}</p>
+<p>Price: {{ order.price }}</p>
+<form action="{{ url_for('order', order_id=order.id) }}" method="PUT">
+<label for="product_name">Product Name:</label>
+<input type="text" name="product_name" id="product_name" value="{{ order.product_name }}">
+<br>
+<label for="quantity">Quantity:</label>
+<input type="number" name="quantity" id="quantity" value="{{ order.quantity }}">
+<br>
+<label for="price">Price:</label>
+<input type="number" name="price" id="price" value="{{ order.price }}">
+<br>
+<input type="submit" value="Update Order">
+</form>
+<form action="{{ url_for('order', order_id=order.id) }}" method="DELETE">
+<input type="submit" value="Delete Order">
+</form>
+</body>
+</html>
+
