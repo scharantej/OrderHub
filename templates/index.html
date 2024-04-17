@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order System</title>
+</head>
+<body>
+<h1>Orders</h1>
+<ul>
+{% for order in orders %}
+<li><a href="{{ url_for('order', order_id=order.id) }}">{{ order.product_name }}</a></li>
+{% endfor %}
+</ul>
+<form action="{{ url_for('order') }}" method="POST">
+<label for="product_name">Product Name:</label>
+<input type="text" name="product_name" id="product_name">
+<br>
+<label for="quantity">Quantity:</label>
+<input type="number" name="quantity" id="quantity">
+<br>
+<label for="price">Price:</label>
+<input type="number" name="price" id="price">
+<br>
+<input type="submit" value="Create Order">
+</form>
+</body>
+</html>
+
+
